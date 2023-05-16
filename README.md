@@ -1,2 +1,2 @@
-# Bar-Chart-Race
-Como criar um gráfico animado utilizando o pacote bar_chart_race no Python
+# Audio para Texto
+Programa que transcreve um arquivo de áudio para texto no Python
