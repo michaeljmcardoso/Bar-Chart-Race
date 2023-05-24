@@ -1,8 +1,8 @@
 # Áudio para Texto
-Programa que transcreve um arquivo de áudio para texto no Python.
-Veja como é fácil transcrever áudio para texto com algumas linhas de código, utilizando API do google Speech Recognition.
 
-Este projeto consiste em um programa de conversão de áudio em texto utilizando a biblioteca **SpeechRecognition em Python**. O objetivo principal é **fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de áudios para texto**.
+   <p> Este projeto consiste em um programa de conversão de áudio para texto, utilizando a biblioteca <strong>SpeechRecognition</strong> do Python. O objetivo principal é <strong>fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de arquivos de áudio em texto.</strong></p>
+
+Inicialmente pensou-se um programa que fosse basicamente, simples e com poucas linhas de código. Os primeiros testes mostraram que o programa não convertia os áudios por completo.
 
 A primeira versão do programa foi desenvolvida para lidar com a conversão de pequenos trechos de áudio. Ela utiliza a função recognize_google da biblioteca SpeechRecognition para realizar a conversão de áudio em texto. Essa versão é adequada para transcrever áudios curtos, como mensagens de voz, anotações rápidas ou pequenos trechos de diálogos. Embora seja simples, essa versão já pode ser útil para economizar tempo e esforço na transcrição manual.
 
