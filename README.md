@@ -2,11 +2,9 @@
 
    <p> Este projeto consiste em um programa de conversão de áudio para texto, utilizando a biblioteca <strong>SpeechRecognition</strong> do Python. O objetivo principal é <strong>fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de arquivos de áudio em texto.</strong>
    
-## Google Web Speech API
+   ## Google Web Speech API
 
-Uma API (Application Programming Interface) é um conjunto de regras e protocolos que permite que diferentes softwares se comuniquem entre si. É como uma ponte que permite que um programa utilize as funcionalidades de outro de maneira padronizada e organizada.
-
-O SpeechRecognition é uma biblioteca de Python que utiliza uma API de reconhecimento de fala para converter áudio em texto. Essa API, chamada de Google Web Speech API, é um serviço oferecido pela Google que faz o processamento da fala em tempo real e retorna o texto correspondente.
+O SpeechRecognition é uma biblioteca de Python que utiliza uma API de reconhecimento de fala para converter áudio em texto. O que é uma API? Uma API (Application Programming Interface) é um conjunto de regras e protocolos que permite que diferentes softwares se comuniquem entre si. É como uma ponte que permite que um programa utilize as funcionalidades de outro de maneira padronizada e organizada. Essa API, chamada de <em>Google Web Speech API</em>, é um serviço oferecido pela Google que faz o processamento da fala em tempo real e retorna o texto correspondente.
 
 O funcionamento do SpeechRecognition com a API de reconhecimento de fala ocorre em etapas. Primeiro, o programa utiliza a biblioteca para ler um arquivo de áudio ou capturar áudio em tempo real. Em seguida, a biblioteca envia esse áudio para a API de reconhecimento de fala da Google. A API processa o áudio, utilizando algoritmos avançados de reconhecimento de fala, e retorna o texto correspondente.
 
