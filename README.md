@@ -2,9 +2,7 @@
 
    <p> Este projeto consiste em um programa de conversão de áudio para texto, utilizando a biblioteca <strong>SpeechRecognition</strong> do Python. O objetivo principal é <strong>fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de arquivos de áudio em texto.</strong></p>
 
-Inicialmente pensou-se um programa que fosse basicamente, simples e com poucas linhas de código. Os primeiros testes mostraram que o programa não convertia os áudios por completo.
-
-A primeira versão do programa foi desenvolvida para lidar com a conversão de pequenos trechos de áudio. Ela utiliza a função recognize_google da biblioteca SpeechRecognition para realizar a conversão de áudio em texto. Essa versão é adequada para transcrever áudios curtos, como mensagens de voz, anotações rápidas ou pequenos trechos de diálogos. Embora seja simples, essa versão já pode ser útil para economizar tempo e esforço na transcrição manual.
+Inicialmente pensou-se um programa que fosse basicamente, simples e com poucas linhas de código. Então, a primeira versão do programa acabou sendo desenvolvida para lidar com a conversão de pequenos trechos de áudio. Ela utiliza a função recognize_google da biblioteca SpeechRecognition para realizar a conversão de áudio em texto. Essa versão é adequada para transcrever áudios curtos, como mensagens de voz, anotações rápidas ou pequenos trechos de diálogos. Embora seja simples, essa versão já pode ser útil para economizar tempo e esforço na transcrição manual. Porém, como trabalho com realização de entrevistas
 
 No entanto, percebeu-se a necessidade de uma versão mais robusta para lidar com a transcrição de áudios longos. A segunda versão foi então desenvolvida para atender a essa demanda. Nessa versão, o áudio é dividido em partes de aproximadamente 30 segundos para evitar problemas de memória durante o processamento. Além disso, é realizada uma melhoria na precisão do reconhecimento de fala através do ajuste para o ruído ambiente antes de cada gravação. Essa versão é capaz de transcrever áudios longos, como palestras, entrevistas, podcasts ou reuniões.
 
