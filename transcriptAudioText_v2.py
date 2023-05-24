@@ -45,10 +45,10 @@ def audio_para_texto(nome_arquivo):
         return texto_reconhecido
 
 # Nome do arquivo de áudio
-nome_arquivo_audio = 'audioText_2.wav'
+nome_arquivo_audio = 'audioText_v2.wav'
 
 # Chama a função de conversão de áudio para texto
 texto_reconhecido = audio_para_texto(nome_arquivo_audio)
 
 # Imprime o texto reconhecido
-print('Texto reconhecido:', texto_reconhecido)
+print('O texto reconhecido foi:', texto_reconhecido)
