@@ -4,7 +4,7 @@
    
    ## Google Web Speech API
 
-   O <em>SpeechRecognition</em> é uma biblioteca de Python que utiliza uma API de reconhecimento de fala para converter áudio em texto. O que é uma API? Uma API (Interface de Programação de Aplicativos) é um conjunto de regras e protocolos que permite que diferentes softwares se comuniquem entre si. É como uma ponte que permite que um programa utilize as funcionalidades de outro de maneira padronizada e organizada. Essa API, chamada de <em>Google Web Speech API</em>, é um serviço oferecido pela Google que faz o processamento da fala em tempo real e retorna o texto correspondente.
+   O <em>SpeechRecognition</em> é uma biblioteca de Python que utiliza uma API de reconhecimento de fala para converter áudio em texto. O que é uma API? Uma API (Interface de Programação de Aplicativos), de modo simples, é um conjunto de regras e protocolos que permite que diferentes softwares se comuniquem entre si. É como uma ponte que permite que um programa utilize as funcionalidades de outro de maneira padronizada e organizada. Essa API, chamada de <em>Google Web Speech API</em>, é um serviço oferecido pela Google que faz o processamento da fala em tempo real e retorna o texto correspondente.
    
    A escolha desse módulo se dá pela facilidade de uso: O <em>SpeechRecognition</em> é uma biblioteca fácil de aprender e usar, o que torna a implementação do reconhecimento de fala em um programa Python bastante acessível, mesmo para desenvolvedores iniciantes. E também por ter suporte a várias APIs, populares de reconhecimento de fala, incluindo <em>Google Web Speech API</em>.
 
