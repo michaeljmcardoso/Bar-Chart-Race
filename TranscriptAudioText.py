@@ -89,13 +89,7 @@ def main():
                     elapsed_time = time.time() - start_time
                     elapsed_minutes = elapsed_time /60
                     tempo_label.update(f"Tempo decorrido: {format_time(elapsed_time)}")
-
-                # end_time = time.time()
-                # elapsed_time = end_time - start_time
-                #
-                # # Atualiza o tempo gasto
-                # tempo_label.update(f"Tempo decorrido: {elapsed_time:.2f}s")
-
+                
                 # Cria um documento .docx
                 document = Document()
                 document.add_paragraph(converted_text)
