@@ -16,6 +16,12 @@
 
    A biblioteca <em>SpeechRecognition</em> lida com toda a parte de comunicação com a API, tornando o processo transparente para o desenvolvedor. Ela fornece métodos simples para gravar áudio, enviar para a API e receber o texto reconhecido como resposta. Dessa forma, os desenvolvedores podem facilmente integrar o reconhecimento de fala em seus próprios programas, sem se preocupar com os detalhes complexos da API implícitos. A biblioteca facilita a comunicação com a API, permitindo que utilizemos o reconhecimento de fala em nossos programas de maneira simples e eficiente.
    
+   ## Formato de áudio de entrada
+   
+   Neste projeto optamos pelo formato de arquivo de áudio WAV. Isto é, o programa aceitará apenas entrada de arquivos WAV.
+   
+   Em comparação com o o formato MP3, em WAV temos uma compressão sem perdas, a qualidade do som é superior ao MP3, sendo que o formato de arquivo WAV contém muitos detalhes de som, é maior e requer mais espaço. Porém, como desejamos a mais alta qualidade e não nos importamos com o tamanho do arquivo, escolhemos o formato WAV, muito utilizado por profissionais de áudio.
+   
    ## Biblioteca utilizadas
    
    Fizemos uso das seguintes bibliotecas: PySimpleGUI; SpeechRecognition; Pydub; Docx; Time; e Datetime.
