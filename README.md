@@ -1,22 +1,57 @@
 # Áudio para Texto
 
-   <p> Este projeto consiste em um programa de conversão de áudio para texto, utilizando basicamente a biblioteca <em>SpeechRecognition</em> do Python. <strong>O objetivo principal é fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de arquivos de áudio em texto.</strong>
+   <p> Este projeto consiste em um programa de conversão de áudio para texto, utilizando a biblioteca <em>SpeechRecognition</em> do Python. <strong> O objetivo principal é fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de arquivos de áudio em texto.</strong>
    
    ## Google Web Speech API
 
    O <em>SpeechRecognition</em> é uma biblioteca de Python que utiliza uma API de reconhecimento de fala para converter áudio em texto. O que é uma API? Uma API (Interface de Programação de Aplicativos), de modo simples, é um conjunto de regras e protocolos que permite que diferentes softwares se comuniquem entre si. É como uma ponte que permite que um programa utilize as funcionalidades de outro de maneira padronizada e organizada. Essa API, chamada de <em>Google Web Speech API</em>, é um serviço oferecido pela Google que faz o processamento da fala em tempo real e retorna o texto correspondente.
    
-   A escolha desse módulo se dá pela facilidade de uso: O <em>SpeechRecognition</em> é uma biblioteca fácil de aprender e usar, o que torna a implementação do reconhecimento de fala em um programa Python bastante acessível, mesmo para desenvolvedores iniciantes. E também por ter suporte a várias APIs, populares de reconhecimento de fala, incluindo <em>Google Web Speech API</em>.
+   A escolha dessa biblioteca se dá pela facilidade de uso: O <em>SpeechRecognition</em> é fácil de aprender e usar, o que torna a implementação do reconhecimento de fala em um programa Python bastante acessível, mesmo para desenvolvedores iniciantes. E também por ter suporte a várias APIs, populares de reconhecimento de fala, incluindo <em>Google Web Speech API</em>. Com recursos como o SpeechRecognition, os desenvolvedores podem incorporar funcionalidades de <strong>processamento de linguagem natural</strong> em suas aplicações, abrindo portas para interações mais intuitivas e acessíveis por meio da fala. 
 
    ## Como ocorre o processo?
    
    O funcionamento do <em>SpeechRecognition</em> com a API de reconhecimento de fala ocorre em etapas. Primeiro, o programa utiliza a biblioteca para ler um arquivo de áudio ou capturar áudio em tempo real. Em seguida, a biblioteca envia esse áudio para a API de reconhecimento de fala da Google. A API processa o áudio, utilizando algoritmos avançados de reconhecimento de fala, e retorna o texto correspondente.
 
-   A biblioteca <em>SpeechRecognition</em> lida com toda a parte de comunicação com a API, tornando o processo transparente para o desenvolvedor. Ela fornece métodos simples para gravar áudio, enviar para a API e receber o texto reconhecido como resposta. Dessa forma, os desenvolvedores podem facilmente integrar o reconhecimento de fala em seus próprios programas, sem se preocupar com os detalhes complexos da API implícitos.
-
-   Basicamente, o <em>SpeechRecognition</em> utiliza uma API de reconhecimento de fala para converter áudio em texto. A biblioteca facilita a comunicação com essa API, permitindo que utilizemos o reconhecimento de fala em nossos programas de maneira simples e eficiente.
+   A biblioteca <em>SpeechRecognition</em> lida com toda a parte de comunicação com a API, tornando o processo transparente para o desenvolvedor. Ela fornece métodos simples para gravar áudio, enviar para a API e receber o texto reconhecido como resposta. Dessa forma, os desenvolvedores podem facilmente integrar o reconhecimento de fala em seus próprios programas, sem se preocupar com os detalhes complexos da API implícitos. A biblioteca facilita a comunicação com a API, permitindo que utilizemos o reconhecimento de fala em nossos programas de maneira simples e eficiente.
    
-   ## Projeto
+   ## Biblioteca utilizadas
+   
+   Fizemos uso das seguintes bibliotecas: PySimpleGUI; SpeechRecognition; Pydub; Docx; Time; e Datetime.
+   Vamos comentar resumidamente a função de cada biblioteca que foi importada no projeto.
+
+```python
+import PySimpleGUI as sg
+```
+- `PySimpleGUI`: É uma biblioteca de interface gráfica que facilita a criação de interfaces de usuário (GUI) em Python. Ela fornece uma API simples e intuitiva para criar janelas, botões, caixas de entrada e outros elementos de interface.
+
+```python
+import speech_recognition as sr
+```
+- `speech_recognition`: É uma biblioteca que fornece recursos de reconhecimento de fala em Python. Ela permite capturar áudio de microfone ou arquivos de áudio e convertê-lo em texto utilizando serviços de reconhecimento de fala, como o Google Speech Recognition.
+
+```python
+from pydub import AudioSegment
+```
+- `pydub`: É uma biblioteca para manipulação de arquivos de áudio em Python. Ela oferece funcionalidades para carregar, cortar, mesclar, converter e reproduzir arquivos de áudio em vários formatos.
+
+```python
+from docx import Document
+```
+- `docx`: É uma biblioteca para criação e manipulação de documentos do Microsoft Word em Python. Ela permite criar, editar e salvar documentos .docx, além de fornecer recursos para adicionar texto, formatação, tabelas, imagens e outros elementos aos documentos.
+
+```python
+import time
+```
+- `time`: É um módulo que fornece funções relacionadas ao tempo, como medir a duração de um evento, adicionar atrasos ou pausas no programa e trabalhar com timestamps.
+
+```python
+import datetime
+```
+- `datetime`: É um módulo que fornece classes e funções para manipulação de datas e horas em Python. Ele permite obter informações sobre a data e hora atual, realizar cálculos de tempo, formatar datas e horas, entre outras operações relacionadas ao tempo.
+
+Essas bibliotecas e módulos fornecem funcionalidades essenciais para o seu programa, como a criação da interface gráfica, reconhecimento de fala, manipulação de áudio e criação de documentos do Word.
+   
+   ## Descrição do Projeto
    
    Inicialmente pensou-se um programa que fosse simples e com poucas linhas de código. Assim, a primeira versão do programa acabou sendo desenvolvida para lidar com a conversão de pequenos trechos de áudio. Ela utiliza a função `recognize_google` da biblioteca <em>SpeechRecognition</em> para realizar a conversão de áudio em texto. Essa versão é adequada para transcrever áudios curtos, como mensagens de voz, anotações curtas ou pequenos trechos de diálogos. Embora seja simples, essa versão já pode ser útil para economizar tempo e esforço na trabalhosa transcrição manual.
 
@@ -26,11 +61,13 @@
 
    Em resumo, esse programa de conversão de áudio em texto é uma ferramenta valiosa para economizar tempo e esforço na transcrição manual. As duas versões, a primeira voltada para textos curtos e a segunda para textos longos, fornecem soluções específicas para diferentes necessidades. Através desse projeto, busca-se fornecer uma solução eficiente e acessível para melhorar a produtividade e facilitar a vida daqueles que precisam lidar com a transcrição de áudios.
    
-   ## Lógica do programa step by step:
+   ### Lógica do programa step by step
+   
+   Por fim, falaremos da lógica do programa, detalhado o passo a passo de sua implementação. 
    
    A função main() é o ponto de entrada do programa. Quando o arquivo é executado diretamente (ou seja, não importado por outro módulo), a condição if __name__ == "__main__": é verdadeira e a função main() é chamada.
-
-Essa função é responsável por criar e exibir a janela da interface gráfica usando a biblioteca PySimpleGUI. Ela define o layout da janela, lida com os eventos dos botões e realiza as ações necessárias para converter um arquivo de áudio em texto.
+   
+   Essa função é responsável por criar e exibir a janela da interface gráfica usando a biblioteca PySimpleGUI. Ela define o layout da janela, lida com os eventos dos botões e realiza as ações necessárias para converter um arquivo de áudio em texto.
    
    ### A função main() segue a seguinte lógica:
    
@@ -60,3 +97,4 @@ Essa função é responsável por criar e exibir a janela da interface gráfica 
    
    Em resumo, a função main() é responsável por orquestrar a interface gráfica, o processamento de áudio e a conversão de áudio para texto, permitindo ao usuário selecionar um arquivo de áudio, acompanhando o progresso da conversão e salvando o texto convertido em um arquivo de texto.</p>
    
+   <em>by Michael J M Cardoso</em>
