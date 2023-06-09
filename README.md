@@ -24,5 +24,39 @@
 
    A relevância desse tipo de programa é notável para pessoas que trabalham com a conversão manual de áudios para texto. Transcrever áudios manualmente pode ser um processo demorado e tedioso, exigindo muita atenção e esforço para ouvir cada frase e em seguida escrevê-las. Com o auxílio de um programa de conversão automática, como este, o trabalho é facilitado e acelerado, permitindo que as pessoas foquem em outras tarefas importantes.
 
-   Em resumo, esse programa de conversão de áudio em texto é uma ferramenta valiosa para economizar tempo e esforço na transcrição manual. As duas versões, a primeira voltada para textos curtos e a segunda para textos longos, fornecem soluções específicas para diferentes necessidades. Através desse projeto, busca-se fornecer uma solução eficiente e acessível para melhorar a produtividade e facilitar a vida daqueles que precisam lidar com a transcrição de áudios.</p>
+   Em resumo, esse programa de conversão de áudio em texto é uma ferramenta valiosa para economizar tempo e esforço na transcrição manual. As duas versões, a primeira voltada para textos curtos e a segunda para textos longos, fornecem soluções específicas para diferentes necessidades. Através desse projeto, busca-se fornecer uma solução eficiente e acessível para melhorar a produtividade e facilitar a vida daqueles que precisam lidar com a transcrição de áudios.
+   
+   ## Lógica do programa step by step:
+   
+   A função main() é o ponto de entrada do programa. Quando o arquivo é executado diretamente (ou seja, não importado por outro módulo), a condição if __name__ == "__main__": é verdadeira e a função main() é chamada.
 
+Essa função é responsável por criar e exibir a janela da interface gráfica usando a biblioteca PySimpleGUI. Ela define o layout da janela, lida com os eventos dos botões e realiza as ações necessárias para converter um arquivo de áudio em texto.
+   
+   ### A função main() segue a seguinte lógica:
+   
+   * Configura a aparência da interface gráfica e exibe uma mensagem de boas-vindas.
+   * Define o layout da janela com os elementos necessários, como um campo de entrada para o arquivo de áudio, botões de "Converter" e "Cancelar", uma barra de progresso e rótulos para exibir informações sobre o tempo decorrido e direitos autorais.
+   * Entra em um loop principal para capturar e lidar com os eventos da janela.
+   * Se o evento for o fechamento da janela (sg.WINDOW_CLOSED) ou o botão "Cancelar" for pressionado, o loop é interrompido e o programa é encerrado.
+   * Se o evento for o botão "Converter" e um arquivo de áudio válido tiver sido selecionado, o programa continua com as etapas de conversão.
+   * Carrega o arquivo de áudio usando a biblioteca AudioSegment do pydub.
+   * Divide o áudio em partes de 30 segundos usando a função split_audio().
+   * Inicia um loop para processar cada parte do áudio:
+      * Exporta a parte atual como um arquivo WAV temporário.
+      * Realiza a conversão de áudio para texto usando a função audio_to_text().
+      * Atualiza a barra de progresso com base no progresso atual.
+      * Atualiza o rótulo de tempo decorrido com base no tempo transcorrido desde o início da conversão.
+      * Concatena o texto reconhecido em uma variável converted_text.
+   * Cria um documento docx usando a biblioteca Document do python-docx.
+   * Adiciona o texto reconhecido ao documento.
+   * Exibe uma mensagem de conclusão da conversão.
+   * Abre uma nova janela para definir o diretório e o nome do arquivo de texto a ser salvo.
+   * Entra em um loop para capturar e lidar com os eventos da janela de salvamento.
+   * Se o evento for o fechamento da janela ou o botão "Cancelar" for pressionado, o loop é interrompido e a janela de salvamento é fechada.
+   * Se o evento for o botão "Salvar" e um diretório e nome de arquivo válidos forem fornecidos, o arquivo de texto é salvo.
+   * Exibe uma mensagem informando se o arquivo foi salvo com sucesso ou exibe uma mensagem de erro se o diretório ou nome do arquivo forem inválidos.
+   * Fecha a janela de salvamento.
+   * Retorna ao loop principal para aguardar mais interações do usuário.
+   
+   Em resumo, a função main() é responsável por orquestrar a interface gráfica, o processamento de áudio e a conversão de áudio para texto, permitindo ao usuário selecionar um arquivo de áudio, acompanhando o progresso da conversão e salvando o texto convertido em um arquivo de texto.</p>
+   
