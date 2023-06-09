@@ -98,3 +98,7 @@ Essas bibliotecas e módulos fornecem funcionalidades essenciais para o seu prog
    Em resumo, a função main() é responsável por orquestrar a interface gráfica, o processamento de áudio e a conversão de áudio para texto, permitindo ao usuário selecionar um arquivo de áudio, acompanhando o progresso da conversão e salvando o texto convertido em um arquivo de texto.</p>
    
    <em>by Michael J M Cardoso</em>
+   
+   **Links:**
+* [LinkedIn](https://www.linkedin.com/in/michael-cardoso-84a9a0b2/)
+* [Medium](https://medium.com/@mjcursodatascience)
