@@ -1,3 +1,5 @@
+[![author](https://img.shields.io/badge/author-michaelcardoso-red.svg)](https://www.linkedin.com/in/michael-cardoso-84a9a0b2/)
+
 # Áudio para Texto
 
    <p> Este projeto consiste em um programa de conversão de áudio para texto, utilizando a biblioteca <em>SpeechRecognition</em> do Python. <strong> O objetivo principal é fornecer uma ferramenta simples e eficiente para auxiliar na transcrição de arquivos de áudio em texto.</strong>
