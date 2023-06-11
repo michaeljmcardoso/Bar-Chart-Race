@@ -2,6 +2,10 @@ import PySimpleGUI as sg
 import speech_recognition as sr
 from pydub import AudioSegment
 from docx import Document
+import nltk
+from nltk.tokenize import sent_tokenize
+# nltk.download('punkt') # baixar os recursos necessários na primeira execução
+
 import time
 import datetime
 
@@ -29,13 +33,13 @@ def format_time(seconds):
     return f"{minutes:.0f}min {seconds:.0f}s"
 
 def main():
-    sg.theme('LightGreen1')
+    sg.theme('DarkGreen')
     sg.popup("Olá, bem-vindo ao conversor de áudio para texto.", "Vamos começar!")
 
     layout = [
         [sg.Text("Digite o nome do arquivo de áudio (.wav) ou selecione no 'Browse':", font=("Helvetica", 11))],
         [sg.Input(key="-ARQUIVO-"), sg.FileBrowse(file_types=(("Arquivos de Áudio", "*.wav"), ))],
-        [sg.Button("Converter"), sg.Button("Cancelar")],
+        [sg.Button("Converter", button_color=("white", "green")), sg.Button("Cancelar", button_color=("white", "green"))],
         [sg.ProgressBar(100, orientation='h', size=(20, 20), key="-PROGRESSO-")],
         [sg.Text("Tempo decorrido: 0s", font=("Helvetica", 11), key="-TEMPO-")],
         [sg.Text("_" * 65)],
@@ -76,6 +80,27 @@ def main():
                     chunk.export("temp.wav", format="wav")
                     text = audio_to_text("temp.wav", progress_bar)
                     converted_text += text + " "
+
+                    # Adiciona pontuação ao texto
+                    converted_text = converted_text.strip() + "."
+
+                    # Adiciona pontuação ao texto
+                    converted_text = converted_text.strip() + "."
+
+                    # Divide o texto em sentenças
+                    sentences = sent_tokenize(converted_text)
+
+                    # Separa as sentenças em parágrafos
+                    paragraphs = []
+                    current_paragraph = []
+                    for sentence in sentences:
+                        if sentence.strip():  # Ignora sentenças vazias
+                            current_paragraph.append(sentence)
+                        elif current_paragraph:  # Cria um novo parágrafo quando encontra uma sentença vazia
+                            paragraphs.append(" ".join(current_paragraph))
+                            current_paragraph = []
+                    if current_paragraph:  # Adiciona o último parágrafo, se existir
+                        paragraphs.append(" ".join(current_paragraph))
 
                     progress = int((i / total_chunks) * 100)
                     progress_bar.update(progress)
