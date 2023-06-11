@@ -2,10 +2,7 @@ import PySimpleGUI as sg
 import speech_recognition as sr
 from pydub import AudioSegment
 from docx import Document
-import nltk
-from nltk.tokenize import sent_tokenize
-# nltk.download('punkt') # baixar os recursos necessários na primeira execução
-
+import transformers
 import time
 import datetime
 
@@ -69,7 +66,7 @@ def main():
 
             try:
                 audio = AudioSegment.from_file(audio_file)
-                audio_chunks = split_audio(audio, 30)
+                audio_chunks = split_audio(audio, 60)
                 total_chunks = len(audio_chunks)
                 converted_text = ""
 
@@ -80,27 +77,6 @@ def main():
                     chunk.export("temp.wav", format="wav")
                     text = audio_to_text("temp.wav", progress_bar)
                     converted_text += text + " "
-
-                    # Adiciona pontuação ao texto
-                    converted_text = converted_text.strip() + "."
-
-                    # Adiciona pontuação ao texto
-                    converted_text = converted_text.strip() + "."
-
-                    # Divide o texto em sentenças
-                    sentences = sent_tokenize(converted_text)
-
-                    # Separa as sentenças em parágrafos
-                    paragraphs = []
-                    current_paragraph = []
-                    for sentence in sentences:
-                        if sentence.strip():  # Ignora sentenças vazias
-                            current_paragraph.append(sentence)
-                        elif current_paragraph:  # Cria um novo parágrafo quando encontra uma sentença vazia
-                            paragraphs.append(" ".join(current_paragraph))
-                            current_paragraph = []
-                    if current_paragraph:  # Adiciona o último parágrafo, se existir
-                        paragraphs.append(" ".join(current_paragraph))
 
                     progress = int((i / total_chunks) * 100)
                     progress_bar.update(progress)
@@ -115,10 +91,11 @@ def main():
 
                     janela.refresh()
 
+
                 document = Document()
                 document.add_paragraph(converted_text)
 
-                sg.popup("Conversão concluída com sucesso!", "Clique em OK para salvar o arquivo de texto.")
+                sg.popup("Conversão concluída com sucesso!", "Clique em OK para salvar.")
 
                 save_layout = [
                     [sg.Text("Escolha uma pasta no 'Browse' para salvar:", font=("Helvetica", 11))],
