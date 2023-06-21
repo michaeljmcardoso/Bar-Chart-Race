@@ -7,7 +7,7 @@ import datetime
 
 ano_atual = datetime.datetime.now().year
 
-def split_audio(audio, duration):/home/import_michael
+def split_audio(audio, duration):
     chunks = []
     for i in range(0, len(audio), duration * 1000):
         chunk = audio[i:i + duration * 1000]
