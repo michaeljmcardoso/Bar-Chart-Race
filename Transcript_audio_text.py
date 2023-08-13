@@ -24,7 +24,7 @@ def audio_to_text(audio_file, progress_bar):
     audio = sr.AudioFile(audio_file)
 
     with audio as source:
-        r.adjust_for_ambient_noise(source)
+        #r.adjust_for_ambient_noise(source)
         audio_data = r.record(source)
 
     return r.recognize_google(audio_data, language='pt-BR')
@@ -40,34 +40,35 @@ def check_license():
     today = datetime.datetime.now().date()
 
     # Obtém a data de expiração da licença
-    expiration_date = datetime.datetime.strptime("2023-11-08", "%Y-%m-%d").date()  # prazo da licença
+    expiration_date = datetime.datetime.strptime("2023-12-31", "%Y-%m-%d").date()  # prazo da licença
 
     # Verifica se a licença está expirada
     if today > expiration_date:
-        sg.popup_error("Licença expirada. Entre em contato para renovar: "
-                       "ararajubatranscricoes@gmail.com"
-                       "\nPrazo da licença: 90 Dias\nInício: 2023-08-08")
+        sg.popup_error("Licença expirada.\nPrazo da licença: 90 Dias\nInício: 2023-08-08\n\n"
+                       "Entre em contato para renovar.\n"
+                       "E-mail: ararajubatranscricoes@gmail.com\nTelefone / WhatsApp (98) 98895-7452"
+                       )
         sys.exit(1)
 
-    # Verifica se a licença está próxima da expiração (3 dias de antecedência)
+    # Verifica se a licença está próxima da expiração (3 a 15 dias de antecedência)
     warning_date_15 = expiration_date - datetime.timedelta(days=15)
     warning_date = expiration_date - datetime.timedelta(days=3)
 
     if today == expiration_date:
-        message = ("Hoje é o último dia da sua licença. Entre em contato para renovar: "
-                   "ararajubatranscricoes@gmail.com")
+        message = ("Hoje é o último dia da sua licença. Entre em contato para renovar.\n\n"
+                   "E-mail: ararajubatranscricoes@gmail.com\n\nTelefone / WhatsApp (98) 98895-7452")
     elif today >= warning_date:
         remaining_days = (expiration_date - today).days
         if remaining_days == 1:
-            message = ("Amanhã é o último dia da sua licença. Entre em contato para renovar: "
-                       "ararajubatranscricoes@gmail.com")
+            message = ("Amanhã é o último dia da sua licença. Entre em contato para renovar.\n\n"
+                       "E-mail: ararajubatranscricoes@gmail.com\n\nTelefone / WhatsApp (98) 98895-7452")
         else:
-            message = (f"Sua licença expirará em {remaining_days} dias. Entre em contato para renovar: "
-                       f"ararajubatranscricoes@gmail.com")
+            message = (f"Sua licença expirará em {remaining_days} dias. Entre em contato para renovar.\n\n"
+                       "E-mail: ararajubatranscricoes@gmail.com\n\nTelefone / WhatsApp (98) 98895-7452")
     elif today == warning_date_15:
         remaining_days = (expiration_date - today).days
-        message = (f"Sua licença expirará em {remaining_days} dias. Entre em contato para renovar: "
-                   f"ararajubatranscricoes@gmail.com")
+        message = (f"Sua licença expirará em {remaining_days} dias. Entre em contato para renovar.\n\n"
+                   f"E-mail: ararajubatranscricoes@gmail.com\n\nTelefone / WhatsApp (98) 98895-7452")
     else:
         message = None
 
@@ -78,7 +79,7 @@ def main():
     check_license()
 
     sg.theme('Kayak')
-    #sg.popup("Olá, Laert. O que vamos transcrever hoje!", title="")
+    #sg.popup("Olá. O que vamos transcrever hoje!", title="")
 
     layout = [
         [sg.Text("Digite o nome do arquivo de áudio (.wav) ou selecione no 'Browse':", font=("Helvetica", 11))],
