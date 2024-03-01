@@ -4,9 +4,8 @@ import time
 import datetime
 from pydub import AudioSegment
 from docx import Document
-from funcoes import check_license, audio_to_text, format_time
+from funcoes import check_license, audio_to_text, format_time, ano_atual
 
-ano_atual = datetime.datetime.now().year
 
 def split_audio(audio, duration):
     chunks = []
@@ -29,7 +28,7 @@ def main():
         [sg.ProgressBar(100, orientation='h', size=(20, 20), key="-PROGRESSO-")],
         [sg.Text("Tempo decorrido: 0s", font=("Helvetica", 11), key="-TEMPO-")],
         [sg.Text("_" * 65)],
-        [sg.Text(f"© {ano_atual} Ararajuba Tech House. Todos os direitos reservados.", font=("Helvetica", 8))]
+        [sg.Text(f"© {ano_atual} Desenvolvido por Michael JM Cardoso.", font=("Helvetica", 8), text_color='blue')]
     ]
 
     janela = sg.Window("Transcript_Audio_Texto", layout, size=(462, 200), location=(450, 300), icon='/home/import_michael/Imagens/icon3.png')
@@ -96,7 +95,7 @@ def main():
                     [sg.Input(key="-NOME-"), sg.Text(".docx")],
                     [sg.Button("Salvar")],
                     [sg.Text("_" * 60)],
-                    [sg.Text(f"© {ano_atual} Ararajuba Transcrições. Todos os direitos reservados.", font=("Helvetica", 8))]
+                    [sg.Text(f"© {ano_atual} Desenvolvido por Michael JM Cardoso. Todos os direitos reservados.", font=("Helvetica", 8))]
                 ]
 
                 save_window = sg.Window("Salvar Arquivo", save_layout, size=(455, 200), location=(485, 345))

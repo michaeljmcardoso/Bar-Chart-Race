@@ -30,13 +30,13 @@ def check_license():
     today = datetime.datetime.now().date()
 
     # Obtém a data de expiração da licença
-    expiration_date = datetime.datetime.strptime("2023-11-08", "%Y-%m-%d").date()  # prazo da licença
+    expiration_date = datetime.datetime.strptime("2024-12-31", "%Y-%m-%d").date()  # prazo da licença
 
     # Verifica se a licença está expirada
     if today > expiration_date:
         sg.popup_error("Licença expirada. Entre em contato para renovar: "
                        "ararajubatranscricoes@gmail.com"
-                       "\nPrazo da licença: 90 Dias\nInício: 2023-08-08")
+                       "\nPrazo da licença: 90 Dias\nInício: 0000-00-00")
         sys.exit(1)
 
     # Verifica se a licença está próxima da expiração (3 dias de antecedência)
