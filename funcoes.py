@@ -35,7 +35,7 @@ def check_license():
     # Verifica se a licença está expirada
     if today > expiration_date:
         sg.popup_error("Licença expirada. Entre em contato para renovar: "
-                       "ararajubatranscricoes@gmail.com"
+                       "(98)98895-7452"
                        "\nPrazo da licença: 90 Dias\nInício: 0000-00-00")
         sys.exit(1)
 
@@ -45,19 +45,19 @@ def check_license():
 
     if today == expiration_date:
         message = ("Hoje é o último dia da sua licença. Entre em contato para renovar: "
-                   "ararajubatranscricoes@gmail.com")
+                   "(98)98895-7452")
     elif today >= warning_date:
         remaining_days = (expiration_date - today).days
         if remaining_days == 1:
             message = ("Amanhã é o último dia da sua licença. Entre em contato para renovar: "
-                       "ararajubatranscricoes@gmail.com")
+                       "(98)98895-7452")
         else:
             message = (f"Sua licença expirará em {remaining_days} dias. Entre em contato para renovar: "
-                       f"ararajubatranscricoes@gmail.com")
+                       f"(98)98895-7452")
     elif today == warning_date_15:
         remaining_days = (expiration_date - today).days
         message = (f"Sua licença expirará em {remaining_days} dias. Entre em contato para renovar: "
-                   f"ararajubatranscricoes@gmail.com")
+                   f"(98)98895-7452")
     else:
         message = None
 
