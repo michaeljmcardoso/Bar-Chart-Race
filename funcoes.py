@@ -28,7 +28,7 @@ def format_time(seconds):
 def check_license():
     today = datetime.datetime.now().date()
 
-    expiration_date = datetime.datetime.strptime("2024-06-07", "%Y-%m-%d").date()  # prazo da licença
+    expiration_date = datetime.datetime.strptime("2024-12-31", "%Y-%m-%d").date()  # prazo da licença
 
     if today > expiration_date:
         sg.popup_error("Entre em contato para renovar:", "Whatsapp => (98) 98895-7452", "Email => michaeljmc@outlook.com.br", "Prazo da licença: 90 Dias", "Início: 0000-00-00", 
