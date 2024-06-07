@@ -9,9 +9,11 @@ from funcoes import check_license, audio_to_text, format_time, ano_atual
 
 def split_audio(audio, duration):
     chunks = []
+
     for i in range(0, len(audio), duration * 1000):
         chunk = audio[i:i + duration * 1000]
         chunks.append(chunk)
+
     return chunks
 
 
@@ -35,26 +37,32 @@ def main():
 
     while True:
         event, values = janela.read(timeout=100)
+
         if event == sg.WINDOW_CLOSED or event == "Cancelar":
             janela.close()
+
             return
 
         if event == "Converter":
             audio_file = values["-ARQUIVO-"]
             progress_bar = janela["-PROGRESSO-"]
             tempo_label = janela["-TEMPO-"]
+
             if not audio_file:
                 sg.popup("Por favor, selecione um arquivo (.wav).")
+
             else:
                 sg.popup('Iniciando Transcrição.', title="Carregando...", auto_close=(True))
 
             progress_bar.update(0)
+
             tempo_label.update("Tempo decorrido: 0s")
 
             try:
                 audio = AudioSegment.from_file(audio_file)
                 audio_chunks = split_audio(audio, 30)
                 total_chunks = len(audio_chunks)
+                
                 converted_text = ""
 
                 start_time = time.time()
@@ -62,11 +70,14 @@ def main():
                 for i, chunk in enumerate(audio_chunks, start=1):
 
                     chunk.export("temp.wav", format="wav")
+
                     try:
                         text = audio_to_text("temp.wav", progress_bar)
                         converted_text += text + " "
+
                     except sr.UnknownValueError:
                         converted_text += f"<Erro: Não foi possível transcrever esta parte do áudio> "
+
                     except sr.RequestError as e:
                         converted_text += f"<Erro: Não foi possível conectar à API do Google: {e}> "
 
@@ -77,8 +88,10 @@ def main():
                     tempo_label.update(f"Tempo decorrido: {format_time(elapsed_time)}")
 
                     event, values = janela.read(timeout=100)
+
                     if event == sg.WINDOW_CLOSED or event == "Cancelar":
                         janela.close()
+
                         return
 
                     janela.refresh()
@@ -104,6 +117,7 @@ def main():
                     save_event, save_values = save_window.read(timeout=100)
 
                     if save_event == sg.WINDOW_CLOSED or save_event == "Cancelar":
+
                         break
 
                     if save_event == "Salvar":
@@ -117,6 +131,7 @@ def main():
                             janela["-ARQUIVO-"].update("")
 
                             break
+
                         else:
                             sg.popup("Por favor, selecione um diretório e forneça um nome para o arquivo.")
 
@@ -131,4 +146,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
