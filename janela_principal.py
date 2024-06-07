@@ -18,7 +18,7 @@ def split_audio(audio, duration):
 def main():
     check_license()
 
-    sg.theme('Kayak')
+    sg.theme('DarkBlack')
     #sg.popup("Olá. O que vamos transcrever hoje!", title="")
 
     layout = [
@@ -27,8 +27,8 @@ def main():
         [sg.Button("Converter", button_color=("white", "green")), sg.Button("Cancelar", button_color=("white", "green"))],
         [sg.ProgressBar(100, orientation='h', size=(20, 20), key="-PROGRESSO-")],
         [sg.Text("Tempo decorrido: 0s", font=("Helvetica", 11), key="-TEMPO-")],
-        [sg.Text("_" * 65)],
-        [sg.Text(f"© {ano_atual} Desenvolvido por Michael JM Cardoso.", font=("Helvetica", 8), text_color='blue')]
+        [sg.Text("_" * 65, font=("bold"))],
+        [sg.Text(f"© {ano_atual} Desenvolvido por Michael JM Cardoso.", font=("Helvetica", 8, "bold"), text_color='white')]
     ]
 
     janela = sg.Window("Transcript_Audio_Texto", layout, size=(462, 200), location=(450, 300), icon='/home/import_michael/Imagens/icon3.png')
@@ -45,8 +45,8 @@ def main():
             tempo_label = janela["-TEMPO-"]
             if not audio_file:
                 sg.popup("Por favor, selecione um arquivo (.wav).")
-            #else:
-                #sg.popup('Isso pode levar alguns minutos.', 'Aguarde enquanto convertemos seu arquivo.', auto_close=(True))
+            else:
+                sg.popup('Iniciando Transcrição.', title="Carregando...", auto_close=(True))
 
             progress_bar.update(0)
             tempo_label.update("Tempo decorrido: 0s")
@@ -86,7 +86,7 @@ def main():
                 document = Document()
                 document.add_paragraph(converted_text)
 
-                sg.popup("Conversão concluída com sucesso!", "Clique em OK para salvar.", title="Sucesso")
+                sg.popup("Conversão concluída com sucesso!", "Clique em OK para salvar.", title="Sucesso", font=("Helvetica", 10, "bold"))
 
                 save_layout = [
                     [sg.Text("Escolha uma pasta no 'Browse' para salvar:", font=("Helvetica", 11))],
@@ -95,7 +95,7 @@ def main():
                     [sg.Input(key="-NOME-"), sg.Text(".docx")],
                     [sg.Button("Salvar")],
                     [sg.Text("_" * 60)],
-                    [sg.Text(f"© {ano_atual} Desenvolvido por Michael JM Cardoso. Todos os direitos reservados.", font=("Helvetica", 8))]
+                    [sg.Text(f"© {ano_atual} Desenvolvido por Michael JM Cardoso. Todos os direitos reservados.", font=("Helvetica", 8, "bold"))]
                 ]
 
                 save_window = sg.Window("Salvar Arquivo", save_layout, size=(455, 200), location=(485, 345))
@@ -114,8 +114,7 @@ def main():
                             document.save(f"{directory}/{filename}.docx")
                             sg.popup("Arquivo salvo com sucesso!")
 
-                            # Limpar o campo de input do arquivo de áudio
-                            janela["-ARQUIVO-"].update("")  # Definir como string vazia
+                            janela["-ARQUIVO-"].update("")
 
                             break
                         else:
